@@ -26,11 +26,11 @@ import java.util.Optional;
 /**
  * NamedParameterJdbcTemplate
  * SqlParameterSource
- * - BeanPropertySqlParameterSource
+ * - BeanPropertySqlParameterSource - auto create instance by java bean property rule
  * - MapSqlParameterSource
  * Map
  *
- * BeanPropertyRowMapper
+ * BeanPropertyRowMapper - map ResultSet -> Item. support underscore casing
  */
 @Slf4j
 public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
@@ -69,7 +69,7 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
 
     @Override
     public Optional<Item> findById(Long id) {
-        String sql = "SELECT id, item_name, price, quantity FROM item WHERE id = :id";
+        String sql = "SELECT id, item_name as itemName, price, quantity FROM item WHERE id = :id";
         try {
             Map<String, Object> param = Map.of("id", id);
             Item item = jdbcTemplate.queryForObject(sql, param, itemRowMapper());
@@ -87,7 +87,7 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(cond);
 
 
-        String sql = "SELECT id, item_name, price, quantity FROM item";
+        String sql = "SELECT id, item_name as itemName, price, quantity FROM item";
         //동적 쿼리
         if (StringUtils.hasText(itemName) || maxPrice != null) {
             sql += " where";
