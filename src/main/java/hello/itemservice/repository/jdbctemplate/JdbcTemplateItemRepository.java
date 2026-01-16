@@ -90,9 +90,8 @@ public class JdbcTemplateItemRepository implements ItemRepository {
             sql += " price <= ?";
             param.add(maxPrice);
         }
-
         log.info("sql={}", sql);
-        return jdbcTemplate.query(sql, itemRowMapper());
+        return jdbcTemplate.query(sql, itemRowMapper(), param.toArray());
     }
 
     private RowMapper<Item> itemRowMapper() {
