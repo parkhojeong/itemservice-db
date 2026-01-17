@@ -19,7 +19,7 @@ import java.util.Optional;
  * spring boot auto configuration using JpaBaseConfiguration
  */
 @Slf4j
-@Repository
+@Repository // use PersistenceExceptionTranslator
 @RequiredArgsConstructor
 public class JpaItemRepository implements ItemRepository {
     private final EntityManager em;
@@ -49,7 +49,7 @@ public class JpaItemRepository implements ItemRepository {
 
     @Override
     public List<Item> findAll(ItemSearchCond cond) {
-        String jpql = "SELECT i FROM Item i"; // Item -> java class Item
+        String jpql = "SELECTxxx i FROM Item i"; // Item -> java class Item
 
         Integer maxPrice = cond.getMaxPrice();
         String itemName = cond.getItemName();
