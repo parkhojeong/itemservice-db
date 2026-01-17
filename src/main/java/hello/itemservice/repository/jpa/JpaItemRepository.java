@@ -19,7 +19,7 @@ import java.util.Optional;
  * spring boot auto configuration using JpaBaseConfiguration
  */
 @Slf4j
-@Repository // use PersistenceExceptionTranslator
+//@Repository // use PersistenceExceptionTranslator
 @RequiredArgsConstructor
 public class JpaItemRepository implements ItemRepository {
     private final EntityManager em;
