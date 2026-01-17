@@ -21,7 +21,7 @@ import java.util.Optional;
 import static hello.itemservice.domain.QItem.item;
 
 @Transactional
-@Repository
+//@Repository
 public class JpaItemRepositoryV3 implements ItemRepository {
 
     private final EntityManager em;

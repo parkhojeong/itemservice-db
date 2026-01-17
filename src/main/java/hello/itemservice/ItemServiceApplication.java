@@ -20,7 +20,9 @@ import javax.xml.crypto.Data;
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
 //@Import(SpringDataJpaConfig.class)
-@Import(QuerydslConfig.class)
+//@Import(QuerydslConfig.class)
+@Import(SpringDataJpaV2Config.class)
+
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
