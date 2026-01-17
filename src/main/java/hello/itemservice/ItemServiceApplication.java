@@ -30,7 +30,7 @@ public class ItemServiceApplication {
 		return new TestDataInit(itemRepository);
 	}
 
-	@Bean
+	//@Bean
 	@Profile("test")
 	public DataSource dataSource() {
 		log.info("memory db init");
