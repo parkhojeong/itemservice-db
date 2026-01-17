@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Transactional
-@Repository
+//@Repository
 @RequiredArgsConstructor
 public class JpaItemRepositoryV2 implements ItemRepository {
 
