@@ -62,6 +62,7 @@ class ItemRepositoryTest {
         assertThat(findItem).isEqualTo(savedItem);
     }
 
+    @Commit
     @Test
     void updateItem() {
         //given
